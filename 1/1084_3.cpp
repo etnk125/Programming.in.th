@@ -1,0 +1,60 @@
+#include<iostream>
+using namespace std;
+unsigned long long int count=0,k;
+unsigned long long int check(int x)
+{
+	while(x>=1000000000){
+		x-=1000000000;count+=211111111;
+	}
+	while(x>=100000000)
+	{
+		x-=100000000;count+=21111111;
+	}
+	while(x>=10000000)
+	{
+		x-=10000000;count+=2111111;
+	}
+	while(x>=1000000)
+	{
+		x-=1000000;count+=211111;
+	}
+	while(x>=100000)
+	{
+		x-=100000;count+=21111;
+	}
+	while(x>=10000)
+	{
+		x-=10000;count+=2111;
+	}
+	while(x>=1000)
+	{
+		x-=1000;count+=211;
+	}
+	while(x>=100)
+	{
+		x-=100;count+=21;
+	}
+	while(x>=10)
+	{
+		x-=10;count+=2;
+	}
+	if(x>=5)count++;
+	count%=k;
+	return count;
+}
+main()
+{
+	unsigned long long int n,sum=0,i,y,x;
+	cin>>x>>y>>k;
+		sum+=check(x);
+	for(i=x+1;i<=y;i++)
+	{
+		if(i%10==5)count++;
+		while(i%10==0)
+		{
+			i/=10;
+			count++;
+		}
+		sum=(sum+count)%k;
+	}cout<<sum%k;
+}
